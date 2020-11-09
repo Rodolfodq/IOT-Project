@@ -79,19 +79,20 @@ namespace IotProject.Controllers
         [HttpGet("deviceidsensor/{id}", Name = "GetSensorByDeviceId")]
         public ActionResult<SensorReadDto> GetSensorByDeviceId(int id)
         {
-            var devicesSensores = _repository.GetSensorByDeviceId(id);
-            var deviceModelFromRepo = _deviceRepo.GetDeviceById(devicesSensores.DeviceId);
+            IEnumerable<Sensor> sensorList = _repository.GetSensorByDeviceId(id);
+            //var deviceModelFromRepo = _deviceRepo.GetDeviceById(devicesSensores.DeviceId);
             string userId = GetIdUser();
-            if (devicesSensores == null)
+            if (sensorList == null)
             {
                 return NotFound();
             }
-            else if (userId != deviceModelFromRepo.UserId)
-            {
-                return Unauthorized();
-            }            
+            //else if (userId != deviceModelFromRepo.UserId)
+            //{
+            //    return Unauthorized();
+            //}            
             
-            return Ok(_mapper.Map<SensorReadDto>(devicesSensores));
+            //return Ok(_mapper.Map<SensorReadDto>(sensorList));
+            return Ok(_mapper.Map<IEnumerable<SensorReadDto>>(sensorList));
         }
 
         [HttpGet("sensortoken/{sensorToken}")]

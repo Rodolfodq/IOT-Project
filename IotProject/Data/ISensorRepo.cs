@@ -13,7 +13,7 @@ namespace IotProject.Data
         IEnumerable<Sensor> GetAllSensors();
         Sensor GetSensorById(int id);
 
-        Sensor GetSensorByDeviceId(int id);
+        IEnumerable<Sensor> GetSensorByDeviceId(int id);
 
         void CreateSensor(Sensor sensor);
 

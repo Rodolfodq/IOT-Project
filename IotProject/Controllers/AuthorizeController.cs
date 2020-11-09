@@ -32,7 +32,7 @@ namespace IotProject.Controllers
         }
 
         [HttpGet]
-        public ActionResult<string> Get()
+        public ActionResult<string> GetAuth()
         {
             return Ok("AuthorizeController :: Acess in: " + DateTime.Now.ToLongTimeString());
         }

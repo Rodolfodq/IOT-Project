@@ -19,6 +19,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Serialization;
+using Microsoft.AspNetCore.Cors;
 
 namespace IotProject
 {
@@ -34,7 +35,8 @@ namespace IotProject
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors();
+            //services.AddCors();
+            services.AddCors(options => { options.AddPolicy("AllowAllOrigins", builder => builder.AllowAnyOrigin()); });
             services.AddDbContext<AppDBContext>(opt => opt.UseMySql(Configuration.GetConnectionString("DeviceConnection")));
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDBContext>().AddDefaultTokenProviders();
             services.AddAuthentication(
@@ -89,6 +91,8 @@ namespace IotProject
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -102,7 +106,7 @@ namespace IotProject
 
             app.UseAuthorization();
 
-            app.UseCors(opt => opt.AllowAnyOrigin());
+            //app.UseCors(opt => opt.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseDeveloperExceptionPage();
 

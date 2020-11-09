@@ -40,9 +40,9 @@ namespace IotProject.Data
             return _context.Sensor.ToList();
         }
 
-        public Sensor GetSensorByDeviceId(int id)
+        public IEnumerable<Sensor> GetSensorByDeviceId(int id)
         {
-            return _context.Sensor.FirstOrDefault(p => p.DeviceId == id);
+            return _context.Sensor.Where(p => p.DeviceId == id).ToList();
         }
 
         public Sensor GetSensorById(int id)
