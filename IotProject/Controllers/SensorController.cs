@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
-using AutoMapper.Internal;
+﻿using AutoMapper;
 using IotProject.Data;
 using IotProject.Dtos;
 using IotProject.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Razor.Language;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace IotProject.Controllers
 {
@@ -79,19 +74,12 @@ namespace IotProject.Controllers
         [HttpGet("deviceidsensor/{id}", Name = "GetSensorByDeviceId")]
         public ActionResult<SensorReadDto> GetSensorByDeviceId(int id)
         {
-            IEnumerable<Sensor> sensorList = _repository.GetSensorByDeviceId(id);
-            //var deviceModelFromRepo = _deviceRepo.GetDeviceById(devicesSensores.DeviceId);
+            IEnumerable<Sensor> sensorList = _repository.GetSensorByDeviceId(id);            
             string userId = GetIdUser();
             if (sensorList == null)
             {
                 return NotFound();
-            }
-            //else if (userId != deviceModelFromRepo.UserId)
-            //{
-            //    return Unauthorized();
-            //}            
-            
-            //return Ok(_mapper.Map<SensorReadDto>(sensorList));
+            }            
             return Ok(_mapper.Map<IEnumerable<SensorReadDto>>(sensorList));
         }
 

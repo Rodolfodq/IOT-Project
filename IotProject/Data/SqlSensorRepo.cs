@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace IotProject.Data
 {
@@ -32,22 +30,24 @@ namespace IotProject.Data
             {
                 throw new ArgumentNullException(nameof(sensor));
             }
-            _context.Sensor.Remove(sensor);
+            sensor.FgAtivo = 0;
+            _context.Update(sensor);
+            //_context.Sensor.Remove(sensor);
         }
 
         public IEnumerable<Sensor> GetAllSensors()
         {
-            return _context.Sensor.ToList();
+            return _context.Sensor.Where(p => p.FgAtivo == 1).ToList();
         }
 
         public IEnumerable<Sensor> GetSensorByDeviceId(int id)
         {
-            return _context.Sensor.Where(p => p.DeviceId == id).ToList();
+            return _context.Sensor.Where(p => p.DeviceId == id && p.FgAtivo == 1).ToList();
         }
 
         public Sensor GetSensorById(int id)
         {
-            return _context.Sensor.FirstOrDefault(p => p.SensorId == id);
+            return _context.Sensor.FirstOrDefault(p => p.SensorId == id && p.FgAtivo == 1);
         }
 
         public Sensor GetSensorByToken(string sensorToken)

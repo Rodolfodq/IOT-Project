@@ -1,11 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace IotProject.Models
 {
@@ -28,6 +21,7 @@ namespace IotProject.Models
         public string DeviceLocation { get; set; }        
         [Required]
         public string UserId { get; set; }
+        public int FgAtivo { get; set; }
         
     }
 }
