@@ -165,7 +165,7 @@ namespace IotProject.Controllers
                 return ValidationProblem(ModelState);
             }
 
-            _mapper.Map(sensorToPatch, sensorModelFromRepo);
+            _mapper.Map(sensorToPatch, sensorModelFromRepo);            
             _repository.UpdateSensor(sensorModelFromRepo);
             _repository.SaveChanges();
 

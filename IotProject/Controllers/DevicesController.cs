@@ -106,9 +106,10 @@ namespace IotProject.Controllers
             else if(userId != deviceModelFromRepo.UserId)
             {
                 return Unauthorized();
-            }            
-
+            }
+                        
             _mapper.Map(deviceUpdateDto, deviceModelFromRepo);
+            deviceModelFromRepo.UserId = userId;
             _repository.UpdateDevice(deviceModelFromRepo);
             _repository.SaveChanges();
 
