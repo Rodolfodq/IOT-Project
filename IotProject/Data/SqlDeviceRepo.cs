@@ -33,9 +33,9 @@ namespace IotProject.Data
             _context.Update(device);            
         }
 
-        public IEnumerable<Device> GetAllDevices()
+        public IEnumerable<Device> GetAllDevices(string userId)
         {
-            return _context.Device.Where(p => p.FgAtivo == 1).ToList();
+            return _context.Device.Where(p => p.FgAtivo == 1 && p.UserId == userId).ToList();
         }
 
         public Device GetDeviceById(int id)

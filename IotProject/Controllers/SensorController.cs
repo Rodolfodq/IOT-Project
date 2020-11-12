@@ -35,8 +35,7 @@ namespace IotProject.Controllers
             string userId = GetIdUser();
             var sensorItens = _repository.GetAllSensors();            
             List<Sensor> listSensor = new List<Sensor>();
-            var deviceModelFromRepo = _deviceRepo.GetAllDevices();
-            deviceModelFromRepo = deviceModelFromRepo.Where(u => u.UserId == userId).ToList();
+            var deviceModelFromRepo = _deviceRepo.GetAllDevices(userId);            
             foreach (var sensorItem in sensorItens)
             {
                 foreach (var deviceItem in deviceModelFromRepo)
@@ -74,8 +73,9 @@ namespace IotProject.Controllers
         [HttpGet("deviceidsensor/{id}", Name = "GetSensorByDeviceId")]
         public ActionResult<SensorReadDto> GetSensorByDeviceId(int id)
         {
-            IEnumerable<Sensor> sensorList = _repository.GetSensorByDeviceId(id);            
             string userId = GetIdUser();
+            IEnumerable<Sensor> sensorList = _repository.GetSensorByDeviceId(id);            
+            
             if (sensorList == null)
             {
                 return NotFound();

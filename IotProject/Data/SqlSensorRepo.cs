@@ -31,8 +31,7 @@ namespace IotProject.Data
                 throw new ArgumentNullException(nameof(sensor));
             }
             sensor.FgAtivo = 0;
-            _context.Update(sensor);
-            //_context.Sensor.Remove(sensor);
+            _context.Update(sensor);            
         }
 
         public IEnumerable<Sensor> GetAllSensors()

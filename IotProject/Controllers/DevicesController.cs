@@ -33,9 +33,9 @@ namespace IotProject.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<DeviceReadDto>> GetAllDevices()
         {
-            var deviceItens = _repository.GetAllDevices();            
             string userId = GetIdUser();
-            deviceItens = deviceItens.Where(u => u.UserId == userId).ToList();
+            IEnumerable<Device> deviceItens = _repository.GetAllDevices(userId);          
+            //deviceItens = deviceItens.Where(u => u.UserId == userId).ToList();
             return Ok(_mapper.Map<IEnumerable<DeviceReadDto>>(deviceItens));
         }
 

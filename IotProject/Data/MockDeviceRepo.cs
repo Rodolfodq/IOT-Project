@@ -27,7 +27,11 @@ namespace IotProject.Data
 
             return devices;
         }
-        
+
+        public IEnumerable<Device> GetAllDevices(string userId)
+        {
+            throw new NotImplementedException();
+        }
 
         public Device GetDeviceById(int id)
         {

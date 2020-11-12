@@ -5,7 +5,7 @@ namespace IotProject.Data
 {
     public interface IDeviceRepo
     {
-        IEnumerable<Device> GetAllDevices();
+        IEnumerable<Device> GetAllDevices(string userId);
         Device GetDeviceById(int id);
         Device GetDeviceByMac(string macId);
         void CreateDevice(Device device);
