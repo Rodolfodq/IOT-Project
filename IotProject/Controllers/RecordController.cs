@@ -11,7 +11,7 @@ using System.Linq;
 
 namespace IotProject.Controllers
 {
-    [Authorize(AuthenticationSchemes = "Bearer")]
+    //[Authorize(AuthenticationSchemes = "Bearer")]
     [Route("api/[controller]")]
     [ApiController]
     public class RecordController : ControllerBase
@@ -33,9 +33,28 @@ namespace IotProject.Controllers
         }
 
         [HttpPost]
+        public ActionResult<RecordReadDto> CreateRecord(List<RecordCreateDto> recordsCreateDto)
+        {
+            foreach (RecordCreateDto recordCreateDto in recordsCreateDto)
+            {
+                if (recordCreateDto == null)
+                {
+                    return BadRequest();
+                }
+                var recordModel = _mapper.Map<Record>(recordCreateDto);
+                _repository.RecordCreate(recordModel);
+                _repository.SaveChanges();
+
+                //var recordReadDto = _mapper.Map<RecordReadDto>(recordModel);
+                
+            }
+            return Ok();
+        }
+
+        [HttpPost]
         public ActionResult<RecordReadDto> CreateRecord(RecordCreateDto recordCreateDto)
         {
-            if(recordCreateDto == null)
+            if (recordCreateDto == null)
             {
                 return BadRequest();
             }
@@ -43,7 +62,7 @@ namespace IotProject.Controllers
             _repository.RecordCreate(recordModel);
             _repository.SaveChanges();
 
-            var recordReadDto = _mapper.Map<RecordReadDto>(recordModel);
+            //var recordReadDto = _mapper.Map<RecordReadDto>(recordModel);
             return Ok();
         }
     }

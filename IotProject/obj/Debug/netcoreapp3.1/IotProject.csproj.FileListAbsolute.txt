@@ -1,6 +1,5 @@
 C:\Users\RODOLFODANTASQUEIROZ\Desktop\IotProject\IotProject\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\RODOLFODANTASQUEIROZ\Desktop\IotProject\IotProject\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\RODOLFODANTASQUEIROZ\Desktop\IotProject\IotProject\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Users\RODOLFODANTASQUEIROZ\Desktop\IotProject\IotProject\bin\Debug\netcoreapp3.1\IotProject.exe
 C:\Users\RODOLFODANTASQUEIROZ\Desktop\IotProject\IotProject\bin\Debug\netcoreapp3.1\IotProject.deps.json
 C:\Users\RODOLFODANTASQUEIROZ\Desktop\IotProject\IotProject\bin\Debug\netcoreapp3.1\IotProject.runtimeconfig.json
@@ -140,3 +139,4 @@ C:\Users\RODOLFODANTASQUEIROZ\Desktop\IotProject\IotProject\bin\Debug\netcoreapp
 C:\Users\RODOLFODANTASQUEIROZ\Desktop\IotProject\IotProject\obj\Debug\netcoreapp3.1\IotProject.csproj.CoreCompileInputs.cache
 C:\Users\RODOLFODANTASQUEIROZ\Desktop\IotProject\IotProject\obj\Debug\netcoreapp3.1\IotProject.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\RODOLFODANTASQUEIROZ\Desktop\IotProject\IotProject\obj\Debug\netcoreapp3.1\IotProject.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\RODOLFODANTASQUEIROZ\Desktop\IotProject\IotProject\obj\Debug\netcoreapp3.1\scopedcss\bundle\IotProject.styles.css

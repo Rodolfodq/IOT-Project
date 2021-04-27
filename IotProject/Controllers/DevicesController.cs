@@ -53,8 +53,7 @@ namespace IotProject.Controllers
             {
                 return Unauthorized();
             }
-            return Ok(_mapper.Map<DeviceReadDto>(deviceItem));
-            
+            return Ok(_mapper.Map<DeviceReadDto>(deviceItem));           
             
         }
 
