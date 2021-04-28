@@ -32,8 +32,8 @@ namespace IotProject.Controllers
 
         }
 
-        [HttpPost]
-        public ActionResult<RecordReadDto> CreateRecord(List<RecordCreateDto> recordsCreateDto)
+        [HttpPost("list")]
+        public ActionResult CreateRecordList(List<RecordCreateDto> recordsCreateDto)
         {
             foreach (RecordCreateDto recordCreateDto in recordsCreateDto)
             {
@@ -46,13 +46,13 @@ namespace IotProject.Controllers
                 _repository.SaveChanges();
 
                 //var recordReadDto = _mapper.Map<RecordReadDto>(recordModel);
-                
+
             }
             return Ok();
         }
 
         [HttpPost]
-        public ActionResult<RecordReadDto> CreateRecord(RecordCreateDto recordCreateDto)
+        public ActionResult CreateRecord(RecordCreateDto recordCreateDto)
         {
             if (recordCreateDto == null)
             {
