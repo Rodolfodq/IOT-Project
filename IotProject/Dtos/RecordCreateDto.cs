@@ -7,9 +7,8 @@ namespace IotProject.Dtos
     {
         [Required]
         public DateTime RecordDateTime { get; set; }
-        [Required]
-        [MaxLength(50)]
-        public string RecordValue { get; set; }
+        [Required]        
+        public double RecordValue { get; set; }
         [Required]
         public int SensorId { get; set; }
         [Required]

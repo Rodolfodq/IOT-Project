@@ -3,14 +3,16 @@ using System;
 using IotProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace IotProject.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    partial class AppDBContextModelSnapshot : ModelSnapshot
+    [Migration("20210501214748_RecordRecordValueChangeToDouble")]
+    partial class RecordRecordValueChangeToDouble
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -65,7 +67,8 @@ namespace IotProject.Migrations
                         .HasColumnType("datetime(6)");
 
                     b.Property<double>("RecordValue")
-                        .HasColumnType("double");
+                        .HasColumnType("double")
+                        .HasMaxLength(50);
 
                     b.Property<int>("SensorId")
                         .HasColumnType("int");

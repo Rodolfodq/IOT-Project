@@ -12,9 +12,8 @@ namespace IotProject.Models
         public int RecordId { get; set; }
         [Required]
         public DateTime RecordDateTime { get; set; }
-        [Required]
-        [MaxLength(50)]
-        public string RecordValue { get; set; }        
+        [Required]        
+        public double RecordValue { get; set; }        
         public int SensorId { get; set; }
         [Required]
         [MaxLength(6)]
